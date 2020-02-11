@@ -1,5 +1,5 @@
 # American Society of Pharmacogonsy Map of Principal Investigators
-
+![Deploy](https://github.com/chasemc/asp_map/workflows/Deploy/badge.svg?branch=master)
 ## Purpose
 
 The American Society of Pharmacognosy (ASP) wanted to create a living, interactive resource to aid students in finding principal investigators that they might want to conduct research with, have as advisors for graduate school, etc. Obviously this extends to more scenarios than that and I (Chase) personally hope it will make it easier for ASP members to actively seek out collaborations and find underrepresented/underrecognized members to invite as speakers, collaborate with, etc.

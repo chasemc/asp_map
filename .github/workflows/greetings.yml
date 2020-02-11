@@ -1,0 +1,13 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Thanks for submitting your first issue to asp_map! This github repo is used in production which means if the issue is not directly related to ASPs map but related to your own code use, the issue might not be addressed.'  
+        pr-message: 'Thanks for submitting a pr! This github repo is used in production which means if the pr is not directly related to ASPs map but related to your own code use, the issue might not be addressed.'

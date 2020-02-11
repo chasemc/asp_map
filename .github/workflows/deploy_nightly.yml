@@ -1,0 +1,34 @@
+name: Deploy-Nightly
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 0 * * *'
+jobs:
+  build:
+    name: Build_Map
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout_repo
+        uses: actions/checkout@v2
+        with:
+          repository: ${{ github.repository }}
+          ref: 'master'
+          token: ${{ github.token }}
+          clean: 'true'
+          fetch-depth: '1'
+      - name: 'install_tools_update_pip'
+        run: python3 -m pip install --upgrade pip setuptools wheel
+      - name: 'install_pandas_requests'
+        run: pip install requests pandas xlrd
+      - name: 'Run_python_script'
+        run: python "$GITHUB_WORKSPACE"/script.py
+      - name: 'deploy_map'
+        if: success()
+        run: |
+          if [[ "$(git status --porcelain)" != "" ]]; then
+              git config --global user.name 'Auto-Deploy'
+              git config --global user.email 'deploy@auto.com'
+              git commit -am "Auto-Deploy"
+              git push
+          fi

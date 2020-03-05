@@ -1,4 +1,4 @@
-function convertArrayOfObjectsToCSV(args) {  
+function convertArrayOfObjectsTotsv(args) {  
         var result, ctr, keys, columnDelimiter, lineDelimiter, data;
 
         data = args.data || null;
@@ -6,7 +6,7 @@ function convertArrayOfObjectsToCSV(args) {
             return null;
         }
 
-        columnDelimiter = args.columnDelimiter || ',';
+        columnDelimiter = args.columnDelimiter || '\t';
         lineDelimiter = args.lineDelimiter || '\n';
 
         keys = Object.keys(data[0]);
@@ -30,19 +30,19 @@ function convertArrayOfObjectsToCSV(args) {
     }
 
 
-    function downloadCSV(args) {  
+    function downloadtsv(args) {  
         var data, filename, link;
-        var csv = convertArrayOfObjectsToCSV({
+        var tsv = convertArrayOfObjectsTotsv({
             data: gsheet
         });
-        if (csv == null) return;
+        if (tsv == null) return;
 
-        filename = args.filename || 'export.csv';
+        filename = args.filename || 'export.tsv';
 
-        if (!csv.match(/^data:text\/csv/i)) {
-            csv = 'data:text/csv;charset=utf-8,' + csv;
+        if (!tsv.match(/^data:text\/tsv/i)) {
+            tsv = 'data:text/tsv;charset=utf-8,' + tsv;
         }
-        data = encodeURI(csv);
+        data = encodeURI(tsv);
 
         link = document.createElement('a');
         link.setAttribute('href', data);

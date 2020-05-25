@@ -83,9 +83,15 @@ function syncSidebar() {
   $("#feature-list tbody").empty();
   /* Loop through layer and add only features which are in the map bounds */
   academicLayer.eachLayer(function(layer) {
-    if (layer.feature.properties.website === null) {
-      var weblink = ''
+     
+      if (layer.feature.properties.primary_field) {
+      var interests = layer.feature.properties.primary_field
     }
+
+    if (layer.feature.properties.secondary_field) {
+      var interests = layer.feature.properties.primary_field + ', ' + layer.feature.properties.secondary_field
+    }
+
     if (layer.feature.properties.website !== null) {
       var weblink = '<a id="side-website"; href="' +
         layer.feature.properties.website +
@@ -95,13 +101,24 @@ function syncSidebar() {
         ' lab homepage' +
         '</a>'
     }
-    if (layer.feature.properties.programs === null) {
+    if (layer.feature.properties.website === null) {
+            console.log('hsdhdhdhd')
+
+      var weblink = ''
+    }
+ 
+    if (layer.feature.properties.programs !== null) {
+     if (layer.feature.properties.programs === 'null') {
       var program_list = ''
     }
-    if (layer.feature.properties.programs !== null) {
-      var program_list = '<p id="click-modal-programs">' +
+     if (layer.feature.properties.programs !== 'null') {
+     var program_list = '<p id="click-modal-programs">' +
           layer.feature.properties.programs +
           '</p>' 
+    }
+  }
+        if (layer.feature.properties.programs === null) {
+      var program_list = ''
     }
 
 
@@ -142,28 +159,31 @@ function syncSidebar() {
           '" lng="' +
           layer.getLatLng().lng +
           '"><td style="vertical-align: middle;"></td><td class="feature-name">' +
+          '<div class="side-pi-and-uni">' +
           '<p id="side-pi">' +
           layer.feature.properties.first_name +
           ' ' +
           layer.feature.properties.last_name +
           '</p>' +
-          '<div class="side-short-info">' +
           '<p id="side-uni">' +
           layer.feature.properties.uni +
           '</p>' +
           '<p id="side-interests">' +
+          interests +
           '</p>' +
           '</div>' +
+          '<div class="side-dec">' +
           '<p id="side-desc">' +
           layer.feature.properties.shortd +
           '</p>' +
+          '</div>' +
           '<p>' +
-          layer.feature.properties.programs +
+          program_list +
           '</p>' +
           '<div>' +
           weblink +
-          '</div>' +
-          '</td><td style="vertical-align: middle;"><i class="glyphicon glyphicon-chevron-right pull-right"></i></td></tr>'
+          '</div>' 
+          
         );
       }
     }
@@ -219,6 +239,20 @@ function addPoints(data) {
       var interests = data[row].primary_field + ', ' + data[row].secondary_field
     }
 
+    if (data[row].programs !== null) {
+     if (data[row].programs === 'null') {
+      var program_list = ''
+    }
+     if (data[row].programs !== 'null') {
+     var program_list = '<p id="click-modal-programs">' +
+          data[row].programs +
+          '</p>' 
+    }
+  }
+        if (data[row].programs === null) {
+      var program_list = ''
+    }
+
     marker.bindPopup('<h3 id="hover-name">' +
       '<u>' +
       data[row].first_name +
@@ -231,17 +265,13 @@ function addPoints(data) {
       data[row].university +
       '</h4>' +
       '<p>' +
-      'Interests: ' +
       interests +
       '</p>' +
       '<p>' +
-      data[row].short_description +
-      '</p>' +
-      '<p>' +
-      data[row].programs +
+      program_list +
       '</p>' +
       '<div id=popup-click>' +
-      /* 'Click map-marker more info' +*/
+      'Click map-marker more info' +
       '</div>', {
         autoPan: false
       });
@@ -265,7 +295,7 @@ function addPoints(data) {
         shortd: data[row].short_description,
         website: data[row].website,
         primary_field: data[row].primary_field,
-        interests: interests,
+        secondary_field: data[row].secondary_field,
         programs: data[row].programs
       }
     };

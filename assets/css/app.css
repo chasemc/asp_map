@@ -178,13 +178,25 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 
+div.side-pi-and-uni {
+  line-height: 50%;
+}
+
+div.side-dec {
+  line-height: 150%;
+}
+
+#side-interests {
+  line-height: 150%;
+}
+
 #side-pi {
   font-weight: bold;
   font-size: 15px;
 }
 
 #side-uni {
-  font-weight: bold;
+  font-weight: italic;
   font-size: 12px;
 }
 
@@ -197,7 +209,7 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 #side-desc {
-  font-size: 10px;
+  font-size: 14px;
 }
 
 #modal-feature {

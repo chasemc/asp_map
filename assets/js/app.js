@@ -30,7 +30,8 @@ $("#legend-btn").click(function() {
 });
 
 $("#list-btn").click(function() {
-  animateSidebar();
+    $(".navbar-collapse").collapse("toggle");
+animateSidebar();
   return false;
 });
 

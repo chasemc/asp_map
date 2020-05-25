@@ -345,16 +345,16 @@ if (document.body.clientWidth <= 767) {
   var isCollapsed = false;
 }
 
-var groupedOverlays = {
+/*var groupedOverlays = {
   // "Type": {
   "Academia": academicLayer
   // "Industry": industryLayer
   //}
-};
+};*/
 
-var layerControl = L.control.groupedLayers(groupedOverlays, {
+/*var layerControl = L.control.groupedLayers(groupedOverlays, {
   collapsed: isCollapsed
-}).addTo(map);
+}).addTo(map);*/
 
 /* Highlight search box text on click */
 $("#searchbox").click(function() {

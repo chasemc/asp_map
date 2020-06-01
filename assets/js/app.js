@@ -199,7 +199,7 @@ function syncSidebar() {
 }
 
 /* Basemap Layers */
-var usgsImagery = L.tileLayer("https://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}", {
+var usgsImagery = L.tileLayer("http://basemap.nationalmap.gov/arcgis/rest/services/USGSTopo/MapServer/tile/{z}/{y}/{x}", {
   maxZoom: 15,
   attribution: '&copy; Map services and data available from U.S. Geological Survey, National Geospatial Program. &copy'
 });
@@ -375,16 +375,16 @@ if (document.body.clientWidth <= 767) {
   var isCollapsed = false;
 }
 
-var groupedOverlays = {
+/*var groupedOverlays = {
   // "Type": {
   "Academia": academicLayer
   // "Industry": industryLayer
   //}
-};
+};*/
 
-var layerControl = L.control.groupedLayers(groupedOverlays, {
+/*var layerControl = L.control.groupedLayers(groupedOverlays, {
   collapsed: isCollapsed
-}).addTo(map);
+}).addTo(map);*/
 
 /* Highlight search box text on click */
 $("#searchbox").click(function() {

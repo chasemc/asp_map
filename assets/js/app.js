@@ -1,5 +1,45 @@
 var map, featureList;
 
+
+
+function init() {
+  let requestURL = 'https://chasemc.github.io/temp2/j.json';
+let request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType = 'json';
+request.send();
+
+request.onload = function() {
+  const gsheet = request.response;
+  //populateHeader(gsheet);
+  addPoints(gsheet['data'])
+
+}
+  academicLayer.addTo(map);
+  addPoints(gsheet['data'])
+  $("#sel").on("change", function() {
+    if ($('#sel').val() == "All") {
+      addPoints(gsheet['data'])
+    } else {
+      addPoints($.grep(gsheet['data'], function(n, i) {
+        if (typeof n.secondary_field == "string") {
+          var secfield = n.secondary_field.split(',')
+        } else {
+          var secfield = [""]
+        }
+        return n.primary_field.concat(secfield).includes($('#sel').val());
+      }))
+    }
+    syncSidebar();
+  })
+}
+
+
+
+
+
+
+
 // page setup
 $(window).resize(function() {
   sizeLayerControl();
@@ -30,8 +70,8 @@ $("#legend-btn").click(function() {
 });
 
 $("#list-btn").click(function() {
-    $(".navbar-collapse").collapse("toggle");
-animateSidebar();
+  $(".navbar-collapse").collapse("toggle");
+  animateSidebar();
   return false;
 });
 
@@ -83,8 +123,8 @@ function syncSidebar() {
   $("#feature-list tbody").empty();
   /* Loop through layer and add only features which are in the map bounds */
   academicLayer.eachLayer(function(layer) {
-     
-      if (layer.feature.properties.primary_field) {
+
+    if (layer.feature.properties.primary_field) {
       var interests = layer.feature.properties.primary_field
     }
 
@@ -102,22 +142,22 @@ function syncSidebar() {
         '</a>'
     }
     if (layer.feature.properties.website === null) {
-            console.log('hsdhdhdhd')
+      console.log('hsdhdhdhd')
 
       var weblink = ''
     }
- 
+
     if (layer.feature.properties.programs !== null) {
-     if (layer.feature.properties.programs === 'null') {
-      var program_list = ''
-    }
-     if (layer.feature.properties.programs !== 'null') {
-     var program_list = '<p id="click-modal-programs">' +
+      if (layer.feature.properties.programs === 'null') {
+        var program_list = ''
+      }
+      if (layer.feature.properties.programs !== 'null') {
+        var program_list = '<p id="click-modal-programs">' +
           layer.feature.properties.programs +
-          '</p>' 
+          '</p>'
+      }
     }
-  }
-        if (layer.feature.properties.programs === null) {
+    if (layer.feature.properties.programs === null) {
       var program_list = ''
     }
 
@@ -182,8 +222,8 @@ function syncSidebar() {
           '</p>' +
           '<div>' +
           weblink +
-          '</div>' 
-          
+          '</div>'
+
         );
       }
     }
@@ -228,53 +268,68 @@ function addPoints(data) {
   academicLayer.clearLayers()
   for (var row = 0; row < data.length; row++) {
 
-    var popup = data[row].principle_investigator;
     var marker = L.marker([data[row].latitude, data[row].longitude])
 
+    const markerPopup = document.createElement('popup');
+
+
+
+    const hoverName = document.createElement('h3');
+    hoverName.setAttribute("id", "hover-name");
+    hoverName.textContent = data[row].first_name + ', ' + data[row].last_name;
+
+
+    const hoverUni = document.createElement('h4');
+    hoverUni.setAttribute("id", "hover-uni");
+    hoverUni.textContent = data[row].university;
+
+
+    const hoverInterests = document.createElement('p');
+
     if (data[row].primary_field) {
-      var interests = data[row].primary_field
+      hoverInterests.textContent = data[row].primary_field;
     }
 
     if (data[row].secondary_field) {
-      var interests = data[row].primary_field + ', ' + data[row].secondary_field
+      hoverInterests.textContent = data[row].primary_field + ', ' + data[row].secondary_field
     }
+
+
+
+
+
+    const hoverPrograms = document.createElement('p');
+
 
     if (data[row].programs !== null) {
-     if (data[row].programs === 'null') {
-      var program_list = ''
+      if (data[row].programs === 'null') {
+        hoverPrograms.textContent = ''
+      }
+      if (data[row].programs !== 'null') {
+        hoverPrograms.textContent = data[row].programs
+      }
     }
-     if (data[row].programs !== 'null') {
-     var program_list = '<p id="click-modal-programs">' +
-          data[row].programs +
-          '</p>' 
-    }
-  }
-        if (data[row].programs === null) {
-      var program_list = ''
+    if (data[row].programs === null) {
+      hoverPrograms.textContent = ''
     }
 
-    marker.bindPopup('<h3 id="hover-name">' +
-      '<u>' +
-      data[row].first_name +
-      ' ' +
-      data[row].last_name +
-      '</u>' +
-      '</h3>' +
-      '<h4 id="hover-uni">' +
-      //+ 'University: ' 
-      data[row].university +
-      '</h4>' +
-      '<p>' +
-      interests +
-      '</p>' +
-      '<p>' +
-      program_list +
-      '</p>' +
-      '<div id=popup-click>' +
-      'Click map-marker more info' +
-      '</div>', {
-        autoPan: false
-      });
+
+
+
+    markerPopup.appendChild(hoverName);
+    markerPopup.appendChild(hoverUni);
+    markerPopup.appendChild(hoverInterests);
+    markerPopup.appendChild(hoverPrograms);
+
+
+    marker.bindPopup(markerPopup);
+
+
+
+
+
+
+
 
     marker.on('mouseover', function(e) {
       this.openPopup();
@@ -303,27 +358,9 @@ function addPoints(data) {
   }
 }
 
-function init() {
-  academicLayer.addTo(map);
-  addPoints(gsheet)
-  $("#sel").on("change", function() {
-    if ($('#sel').val() == "All") {
-      addPoints(gsheet)
-    } else {
-      addPoints($.grep(gsheet, function(n, i) {
-        if (typeof n.secondary_field == "string") {
-          var secfield = n.secondary_field.split(',')
-        } else {
-          var secfield = [""]
-        }
-        return n.primary_field.concat(secfield).includes($('#sel').val());
-      }))
-    }
-    syncSidebar();
-  })
-}
 
 window.addEventListener('DOMContentLoaded', init);
+
 map = L.map("map", {
   zoom: 3,
   center: [48, -102],

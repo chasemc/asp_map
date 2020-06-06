@@ -1,11 +1,6 @@
 var map, featureList;
 
 
-
-
-
-
-
 // page setup
 $(window).resize(function() {
   sizeLayerControl();
@@ -90,18 +85,114 @@ function syncSidebar() {
   /* Loop through layer and add only features which are in the map bounds */
   academicLayer.eachLayer(function(layer) {
 
-    
+
+
+
+    const markerPopup = document.createElement('popup');
+    const hoverName = document.createElement('h3');
+    const hoverPrograms = document.createElement('p');
+    const hoverUni = document.createElement('h4');
+    const hoverInterests = document.createElement('p');
+
+    hoverName.setAttribute("id", "hover-name");
+    hoverName.textContent = layer.feature.properties.first_name + ', ' + layer.feature.properties.last_name;
+
+    hoverUni.setAttribute("id", "hover-uni");
+    hoverUni.textContent = data[row].university;
+
+    if (data[row].primary_field) {
+      hoverInterests.textContent = data[row].primary_field;
+    }
+
+    if (data[row].secondary_field) {
+      hoverInterests.textContent = data[row].primary_field + ', ' + data[row].secondary_field
+    }
+   
+
+    if (data[row].programs !== null) {
+      if (data[row].programs === 'null') {
+        hoverPrograms.textContent = ''
+      }
+      if (data[row].programs !== 'null') {
+        hoverPrograms.textContent = data[row].programs
+      }
+    }
+    if (data[row].programs === null) {
+      hoverPrograms.textContent = ''
+    }
+
+
+    markerPopup.appendChild(hoverName);
+    markerPopup.appendChild(hoverUni);
+    markerPopup.appendChild(hoverInterests);
+    markerPopup.appendChild(hoverPrograms);
+
+
+    marker.bindPopup(markerPopup);
+
+
+
+
+
+
+
+
+
+
+
+
+/* Create side panel parent */
+    const sidePanel = document.createElement('layerFeature');
+
+    /* Create side panel children */
+    const spInterests = document.createElement('p');
+    const spWebsite = document.createElement('a');
+    const spLastName = document.createElement('p');
+    const spInterests = document.createElement('p');
+    const spInterests = document.createElement('p');
+
+
+    /* Set side panel children ids */
+
+
+    spInterests.setAttribute("id", "side-interests");
+    spWebsite.setAttribute("id", "side-website");
+    spLastName.setAttribute("id", "side-web-lastName");
+    spInterests.setAttribute("id", "side-interests");
+
+
 
     if (layer.feature.properties.primary_field) {
-      var interests = layer.feature.properties.primary_field
+      spInterests.textContent = layer.feature.properties.primary_field
     }
 
     if (layer.feature.properties.secondary_field) {
-      var interests = layer.feature.properties.primary_field + ', ' + layer.feature.properties.secondary_field
+      spInterests.textContent = layer.feature.properties.primary_field + ', ' + layer.feature.properties.secondary_field
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     if (layer.feature.properties.website !== null) {
-      var weblink = '<a id="side-website"; href="' +
+
+      var link = document.createTextNode('Click here for ' + layer.feature.properties.last_name + ' lab homepage'); 
+spWebsite.title = 'Click here for' + layer.feature.properties.last_name + ' lab homepage';
+                a.href = layer.feature.properties.website;  
+
+
+      spWebsite.textContent = '<a id="side-website"; href="' +
         layer.feature.properties.website +
         '" target="_blank">' +
         'Click here for ' +
@@ -109,6 +200,8 @@ function syncSidebar() {
         ' lab homepage' +
         '</a>'
     }
+
+
     if (layer.feature.properties.website === null) {
       console.log('hsdhdhdhd')
 

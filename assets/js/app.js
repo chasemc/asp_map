@@ -90,6 +90,8 @@ function syncSidebar() {
   /* Loop through layer and add only features which are in the map bounds */
   academicLayer.eachLayer(function(layer) {
 
+    
+
     if (layer.feature.properties.primary_field) {
       var interests = layer.feature.properties.primary_field
     }
@@ -237,20 +239,16 @@ function addPoints(data) {
     var marker = L.marker([data[row].latitude, data[row].longitude])
 
     const markerPopup = document.createElement('popup');
-
-
-
     const hoverName = document.createElement('h3');
+    const hoverPrograms = document.createElement('p');
+    const hoverUni = document.createElement('h4');
+    const hoverInterests = document.createElement('p');
+
     hoverName.setAttribute("id", "hover-name");
     hoverName.textContent = data[row].first_name + ', ' + data[row].last_name;
 
-
-    const hoverUni = document.createElement('h4');
     hoverUni.setAttribute("id", "hover-uni");
     hoverUni.textContent = data[row].university;
-
-
-    const hoverInterests = document.createElement('p');
 
     if (data[row].primary_field) {
       hoverInterests.textContent = data[row].primary_field;
@@ -259,13 +257,7 @@ function addPoints(data) {
     if (data[row].secondary_field) {
       hoverInterests.textContent = data[row].primary_field + ', ' + data[row].secondary_field
     }
-
-
-
-
-
-    const hoverPrograms = document.createElement('p');
-
+   
 
     if (data[row].programs !== null) {
       if (data[row].programs === 'null') {
@@ -280,8 +272,6 @@ function addPoints(data) {
     }
 
 
-
-
     markerPopup.appendChild(hoverName);
     markerPopup.appendChild(hoverUni);
     markerPopup.appendChild(hoverInterests);
@@ -289,13 +279,6 @@ function addPoints(data) {
 
 
     marker.bindPopup(markerPopup);
-
-
-
-
-
-
-
 
     marker.on('mouseover', function(e) {
       this.openPopup();

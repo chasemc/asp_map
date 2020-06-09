@@ -446,7 +446,7 @@ function init() {
         academicLayer.addTo(map);
         addPoints(gsheet)
         $("#sel").on("change", function() {
-            if ($('#sel').val() == "All") {
+            if ($('#sel').val().includes("All") ) {
                 addPoints(gsheet)
             } else {
                 addPoints($.grep(gsheet, function(n, i) {

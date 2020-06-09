@@ -445,9 +445,11 @@ function init() {
         const gsheet = request.response['data'];
         academicLayer.addTo(map);
         addPoints(gsheet)
+
         $("#sel").on("change", function() {
-            if ($('#sel').val().includes("All") ) {
+            if ($('#sel').val().includes("All")) {
                 addPoints(gsheet)
+
             } else {
                 addPoints($.grep(gsheet, function(n, i) {
                     if (typeof n.secondary_field == "string") {
@@ -458,7 +460,8 @@ function init() {
                     return n.primary_field.concat(secfield).includes($('#sel').val());
                 }))
             }
-            syncSidebar();
         })
+                            syncSidebar();
+
     }
 }

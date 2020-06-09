@@ -29,14 +29,20 @@ df['timestamp'] = pd.to_datetime(df['timestamp'], format="%Y%m%d:%H:%M:%S.%f")
 # Sort table by timestamp 
 df = df.sort_values(by='timestamp', ascending=True, na_position='first')
 
-# Keep track of rows that will be 'overwritten'
-old_rows = df[df.duplicated(subset=['first_name','last_name'], keep='first')]
-new_rows = df[df.duplicated(subset=['first_name','last_name'], keep='last')]
-
 # Remove duplicate rows, keep latest entry (detemrined by timestamp) 
 df = df[~df.duplicated(subset=['first_name','last_name'], keep='last')]
-# Convert to json and prepend 'gsheet='
-newJson = 'gsheet=' + df.iloc[:,1:].to_json(orient='records')
+
+# Remove rows missing coordinates
+df = df[-df['latitude'].isnull()]
+df = df[-df['longitude'].isnull()]
+
+# Check if lat and lon are valid
+df = df[df['latitude'].between(-90, 90)]
+df = df[df['longitude'].between(-180, 180)]
+
+# Convert pandas df to json
+newJson = '{"data":' + df.iloc[:,1:].to_json(orient='records', force_ascii=True) + '}'
+
 
 # Read old json file
 with open('./data/gsheet.json', 'r') as myfile:

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
@@ -11,253 +11,182 @@
     <meta name="description" content="American Society of Pharmacognosy Researcher Map">
     <meta name="author" content="Chase Clark">
     <title>NP Scientists</title>
-    <link rel="stylesheet" href="assets/dependencies/bootstrap-3.4.1/css/bootstrap.min.css"
-            integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
-            crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/dependencies/leaflet-1.6.0/leaflet.css"
-            integrity="sha384-SjXkmc1DZPATJvxmwcKzdASYUBJkemaNFtRyuDTek/MopwYpFFx0uzrq4eDUADDy"
-            crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/dependencies/leaflet-markercluster-1.4.1/MarkerCluster.css"
-            integrity="sha384-pmjIAcz2bAn0xukfxADbZIb3t8oRT9Sv0rvO+BR5Csr6Dhqq+nZs59P0pPKQJkEV"
-            crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/dependencies/leaflet-markercluster-1.4.1/MarkerCluster.Default.css"
-            integrity="sha384-wgw+aLYNQ7dlhK47ZPK7FRACiq7ROZwgFNg0m04avm4CaXS+Z9Y7nMu8yNjBKYC+"
-            crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/dependencies/leaflet-groupedlayercontrol-0.6.1/leaflet.groupedlayercontrol.min.css"
-            integrity="sha384-jTaPj8/7LfdZXicEJ/SUWan4gkbYw6lXyoRUNPMmNV3fYVfBzHJK8wD6A8Djh+3A"
-            crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/css/app.css"
-            integrity="sha384-dbAnD9vjsKurKOa2yugp083yZETZchvTSQ2MFjsCWtFZ0J1xS3Le+hF4JPld8M4e"
-            crossorigin="anonymous">
-    <link rel="apple-touch-icon" sizes="76x76" href="assets/dependencies/img/favicon-76.png"
-            integrity="sha384-d3Yn2XaNIU/2OKWzue5peAsAaL2vg0ikVCEJBH0CdpBCTg1f87HLLYsinLXCPduZ"
-            crossorigin="anonymous">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/dependencies/img/favicon-120.png"
-            integrity="sha384-M74uJeZg40ccgTb5JDxKw9Fzo1e02RzaNcbTOcrnUiNz3nvlYweAqX12XcYw5H/b"
-            crossorigin="anonymous">
-    <link rel="apple-touch-icon" sizes="152x152" href="assets/dependencies/img/favicon-152.png"
-            integrity="sha384-UR1c6f94J/Wwl0TR0mgzcY9uaFyPTIqNP3TwXJWAu/AhJ1sbFIIqXyDypuTzBihO"
-            crossorigin="anonymous">
-    <link rel="icon" sizes="196x196" href="assets/dependencies/img/favicon-196.png"
-            integrity="sha384-q9sCuOjwwqV0xTE2biQCq1/iXnFvuZB61tCvTTwD6WHQs1Ef6Bn/IetcVAYA22x2"
-            crossorigin="anonymous">
-    <link rel="icon" type="image/x-icon" href="assets/dependencies/img/favicon.ico"
-            integrity="sha384-bk8amsUnwElbKDgSe7H0fr5WWWGXOCVP8B7dihpYQNfvyEcR9LEB/uIdB2D3eP6Z"
-            crossorigin="anonymous">
-  </head>
+    <link rel="stylesheet" href="assets/dependencies/bootstrap-3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/dependencies/leaflet-1.6.0/leaflet.css" integrity="sha384-SjXkmc1DZPATJvxmwcKzdASYUBJkemaNFtRyuDTek/MopwYpFFx0uzrq4eDUADDy" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/dependencies/leaflet-markercluster-1.4.1/MarkerCluster.css" integrity="sha384-pmjIAcz2bAn0xukfxADbZIb3t8oRT9Sv0rvO+BR5Csr6Dhqq+nZs59P0pPKQJkEV" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/dependencies/leaflet-markercluster-1.4.1/MarkerCluster.Default.css" integrity="sha384-wgw+aLYNQ7dlhK47ZPK7FRACiq7ROZwgFNg0m04avm4CaXS+Z9Y7nMu8yNjBKYC+" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/dependencies/leaflet-groupedlayercontrol-0.6.1/leaflet.groupedlayercontrol.min.css" integrity="sha384-jTaPj8/7LfdZXicEJ/SUWan4gkbYw6lXyoRUNPMmNV3fYVfBzHJK8wD6A8Djh+3A" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/app.css" integrity="sha384-dbAnD9vjsKurKOa2yugp083yZETZchvTSQ2MFjsCWtFZ0J1xS3Le+hF4JPld8M4e" crossorigin="anonymous">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/dependencies/img/favicon-76.png" integrity="sha384-d3Yn2XaNIU/2OKWzue5peAsAaL2vg0ikVCEJBH0CdpBCTg1f87HLLYsinLXCPduZ" crossorigin="anonymous">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/dependencies/img/favicon-120.png" integrity="sha384-M74uJeZg40ccgTb5JDxKw9Fzo1e02RzaNcbTOcrnUiNz3nvlYweAqX12XcYw5H/b" crossorigin="anonymous">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/dependencies/img/favicon-152.png" integrity="sha384-UR1c6f94J/Wwl0TR0mgzcY9uaFyPTIqNP3TwXJWAu/AhJ1sbFIIqXyDypuTzBihO" crossorigin="anonymous">
+    <link rel="icon" sizes="196x196" href="assets/dependencies/img/favicon-196.png" integrity="sha384-q9sCuOjwwqV0xTE2biQCq1/iXnFvuZB61tCvTTwD6WHQs1Ef6Bn/IetcVAYA22x2" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="assets/dependencies/img/favicon.ico" integrity="sha384-bk8amsUnwElbKDgSe7H0fr5WWWGXOCVP8B7dihpYQNfvyEcR9LEB/uIdB2D3eP6Z" crossorigin="anonymous">
+</head>
 
-  <body>
+<body>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <div class="navbar-icon-container">
-            <a href="#" class="navbar-icon pull-right visible-xs" id="nav-btn"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
-          </div>
-          <a class="navbar-brand" href="#">Natural Product Investigators</a>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <div class="navbar-icon-container">
+                    <a href="#" class="navbar-icon pull-right visible-xs" id="nav-btn"><i class="glyphicon glyphicon-menu-hamburger"></i></a>
+                </div>
+                <a class="navbar-brand" href="#">Natural Product Investigators</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="about-btn"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;About</a></li>
+                    <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="list-btn"><i class="glyphicon glyphicon-menu-hamburger"></i>&nbsp;&nbsp;Filter Investigators</a></li>
+                    <li><a href="https://www.pharmacognosy.us/">Return to www.pharmacognosy.us</a></li>
+                    <li><a href="https://github.com/chasemc/asp_map/issues" target="_blank">Report an issue</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="about-btn"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;&nbsp;About</a></li>
-            <li><a href="#" data-toggle="collapse" data-target=".navbar-collapse.in" id="list-btn"><i class="glyphicon glyphicon-menu-hamburger"></i>&nbsp;&nbsp;Filter Investigators</a></li>
-
-            <li><a href="https://www.pharmacognosy.us/">Return to www.pharmacognosy.us</a></li>
-            <li><a href="https://github.com/chasemc/asp_map/issues" target="_blank">Report an issue</a></li>
-          </ul>
-        </div>
-      </div>
     </nav>
     <div id="container">
-      <div id="sidebar">
-        <div class="sidebar-wrapper">
-          <div class="panel panel-default" id="features">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-12 col-md-12">
-                  <select multiple="" id="sel" style="width:100%;" size="8">
-                    <option value="All">All</option>
-                    <option value="Bioinformatics">Bioinformatics</option>
-                    <option value="Biosynthesis">Biosynthesis</option>
-                    <option value="Genomics">Genomics</option>
-                    <option value="Cancer Biology">Cancer Biology</option>
-                    <option value="Drug Discovery">Drug Discovery</option>
-                    <option value="Human Microbiome">Human Microbiome</option>
-                    <option value="Infectious Diseases">Infectious Diseases</option>
-                    <option value="Mass Spectrometry">Mass Spectrometry</option>
-                    <option value="Medicinal Chemistry/Synthesis">Medicinal Chemistry/Synthesis</option>
-                    <option value="Metabolomics">Metabolomics</option>
-                    <option value="Microbial/Chemical Ecology">Microbial/Chemical Ecology</option>                   
-                  </select>
+        <div id="sidebar">
+            <div class="sidebar-wrapper">
+                <div class="panel panel-default" id="features">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12">
+                                <select multiple="" id="sel" style="width:100%;" size="8">
+                                    <option value="All">All</option>
+                                    <option value="Bioinformatics">Bioinformatics</option>
+                                    <option value="Biosynthesis">Biosynthesis</option>
+                                    <option value="Genomics">Genomics</option>
+                                    <option value="Cancer Biology">Cancer Biology</option>
+                                    <option value="Drug Discovery">Drug Discovery</option>
+                                    <option value="Human Microbiome">Human Microbiome</option>
+                                    <option value="Infectious Diseases">Infectious Diseases</option>
+                                    <option value="Mass Spectrometry">Mass Spectrometry</option>
+                                    <option value="Medicinal Chemistry/Synthesis">Medicinal Chemistry/Synthesis</option>
+                                    <option value="Metabolomics">Metabolomics</option>
+                                    <option value="Microbial/Chemical Ecology">Microbial/Chemical Ecology</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-table">
+                        <table class="table table-hover" id="feature-list">
+                            <thead class="hidden">
+                                <tr>
+                                    <th>Icon</th>
+                                <tr>
+                                <tr>
+                                    <th>Name</th>
+                                <tr>
+                                <tr>
+                                    <th>Chevron</th>
+                                <tr>
+                            </thead>
+                            <tbody class="list"></tbody>
+                        </table>
+                    </div>
                 </div>
-              </div>
             </div>
-            <div class="sidebar-table">
-              <table class="table table-hover" id="feature-list">
-                <thead class="hidden">
-                  <tr>
-                    <th>Icon</th>
-                  <tr>
-                  <tr>
-                    <th>Name</th>
-                  <tr>
-                  <tr>
-                    <th>Chevron</th>
-                  <tr>
-                </thead>
-                <tbody class="list"></tbody>
-              </table>
-            </div>
-          </div>
         </div>
-      </div>
-      <div id="map"></div>
+        <div id="map"></div>
     </div>
     <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">American Society of Pharmacognosy Researchers Map</h4>
-          </div>
-          <div class="modal-body">
-            <ul class="nav nav-tabs nav-justified" id="aboutTabs">
-              <li class="active"><a href="#about" data-toggle="tab"><i class="fa fa-question-circle"></i>&nbsp;About the project</a></li>
-              <li><a href="#datainfo" data-toggle="tab">Data</a></li>
-              <ul class="dropdown-menu">
-                <li><a href='#' onclick='downloadtsv({ filename: "asp.tsv" });'>Download TSV</a></li>
-              </ul>
-              </li>
-              <li><a href="#license" data-toggle="tab"><i class="fa fa-exclamation-circle"></i>&nbsp;License/Disclaimer</a></li>
-            </ul>
-            <div class="tab-content" id="aboutTabsContent">
-              <div class="tab-pane fade active in" id="about">
-                <p>This project was proposed primarily to aid students in finding invetigators (head of labs) to work with.</p>
-                <div class="panel panel-primary">
-                  <div class="panel-heading">What you'll find</div>
-                  <ul class="list-group">
-                    <li class="list-group-item">Principle Investigators</li>
-                    <li class="list-group-item">Academic interests (selected from a pre-defined list)</li>
-                    <li class="list-group-item">Short description of the lab's interests</li>
-                    <li class="list-group-item">Link to more information/lab website </li>
-                  </ul>
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">American Society of Pharmacognosy Researchers Map</h4>
                 </div>
-              </div>
-              <div id="license" class="tab-pane fade">
-                <div class="text-danger">
-                  <ul class="list-group">
-                    <li class="list-group-item">The data provided on this site is for informational and planning purposes only.</li>
-                    <li class="list-group-item">Absolutely no accuracy or completeness guarantee is implied or intended.</li>
-                    <li class="list-group-item">Typos, dead-links etc. can be reported at: https://github.com/chasemc/asp_map/issues </li>
-                </div>
-                <p> Copyright 2020 American Society of Pharmacognosy
-                  </br>
-                  </br>
-                  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-                  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-                  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </p>
-              </div>
-              <div class="tab-pane fade" id="contact">
-                <form id="contact-form">
-                  <div class="well well-sm">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div class="form-group">
-                          <label for="first-name">First Name:</label>
-                          <input type="text" class="form-control" id="first-name">
+                <div class="modal-body">
+                    <ul class="nav nav-tabs nav-justified" id="aboutTabs">
+                        <li class="active"><a href="#about" data-toggle="tab"><i class="fa fa-question-circle"></i>&nbsp;About the project</a></li>
+                        <li><a href="#datainfo" data-toggle="tab">Data</a></li>
+                        <ul class="dropdown-menu">
+                            <li><a href='#' onclick='downloadtsv({ filename: "asp.tsv" });'>Download TSV</a></li>
+                        </ul>
+                        </li>
+                        <li><a href="#license" data-toggle="tab"><i class="fa fa-exclamation-circle"></i>&nbsp;License/Disclaimer</a></li>
+                    </ul>
+                    <div class="tab-content" id="aboutTabsContent">
+                        <div class="tab-pane fade active in" id="about">
+                            <p>This project was proposed primarily to aid students in finding invetigators (head of labs) to work with.</p>
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">What you'll find</div>
+                                <ul class="list-group">
+                                    <li class="list-group-item">Principle Investigators</li>
+                                    <li class="list-group-item">Academic interests (selected from a pre-defined list)</li>
+                                    <li class="list-group-item">Short description of the lab's interests</li>
+                                    <li class="list-group-item">Link to more information/lab website </li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="form-group">
-                          <label for="last-name">Last Name:</label>
-                          <input type="text" class="form-control" id="last-email">
+                        <div id="license" class="tab-pane fade">
+                            <div class="text-danger">
+                                <ul class="list-group">
+                                    <li class="list-group-item">The data provided on this site is for informational and planning purposes only.</li>
+                                    <li class="list-group-item">Absolutely no accuracy or completeness guarantee is implied or intended.</li>
+                                    <li class="list-group-item">Typos, dead-links etc. can be reported at: https://github.com/chasemc/asp_map/issues </li>
+                            </div>
+                            <p> Copyright 2020 American Society of Pharmacognosy
+                                </br>
+                                </br>
+                                Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+                                The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+                                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. </p>
                         </div>
-                        <div class="form-group">
-                          <label for="email">Email:</label>
-                          <input type="text" class="form-control" id="email">
+                        <div id="datainfo" class="tab-pane fade text-danger">
+                            <p> The TSV file can be opened in most spreadsheet software (Excel, etc.)</p>
+                            <a href='#' onclick='downloadtsv({filename: "pharmacognosists.tsv" });'>Download all data as a TSV</a>
                         </div>
-                      </div>
-                      <div class="col-md-8">
-                        <label for="message">Message:</label>
-                        <textarea class="form-control" rows="8" id="message"></textarea>
-                      </div>
-                      <div class="col-md-12">
-                        <p>
-                          <button type="submit" class="btn btn-primary pull-right" data-dismiss="modal">Submit</button>
-                        </p>
-                      </div>
                     </div>
-                  </div>
-                </form>
-              </div>
-              <div id="datainfo" class="tab-pane fade text-danger">
-                <p> The TSV file can be opened in most spreadsheet software (Excel, etc.)</p>
-                <a href='#' onclick='downloadtsv({filename: "pharmacognosists.tsv" });'>Download all data as a TSV</a>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title text-primary" id="feature-title"></h4>
-          </div>
-          <div class="modal-body" id="feature-info"></div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title text-primary" id="feature-title"></h4>
+                </div>
+                <div class="modal-body" id="feature-info"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <div class="modal fade" id="attributionModal" tabindex="-1" role="dialog">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-            <h4 class="modal-title">
-              Developed for the
-              <a href='https://www.pharmacognosy.us' target="_blank">American Society of Pharmacognosy</a>
-            </h4>
-            <p>
-              Get the code: <a href='https://github.com/chasemc/asp_map' target="_blank">https://github.com/chasemc/asp_map</a>
-            </p>
-          </div>
-          <div class="modal-body">
-            <div id="attribution"></div>
-          </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">
+                        Developed for the
+                        <a href='https://www.pharmacognosy.us' target="_blank">American Society of Pharmacognosy</a>
+                    </h4>
+                    <p>
+                        Get the code: <a href='https://github.com/chasemc/asp_map' target="_blank">https://github.com/chasemc/asp_map</a>
+                    </p>
+                </div>
+                <div class="modal-body">
+                    <div id="attribution"></div>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    <script src="assets/dependencies/jquery-3.5.1/jquery-3.5.1.min.js"
-            integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"
-            crossorigin="anonymous"></script>
-    <script src="assets/dependencies/bootstrap-3.4.1/js/bootstrap.min.js"
-            integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-            crossorigin="anonymous"></script>
-    <script src="assets/dependencies/list-1.5.0/list.min.js"
-            integrity="sha384-JDmRxRiXkNkskRM5AD4qHRGk9ItwZ9flbqOpsRYs8SOrIRwcMtTGKP2Scnjptzgm"
-            crossorigin="anonymous"></script>
-    <script src="assets/dependencies/leaflet-1.6.0/leaflet.js"
-            integrity="sha384-ba1n96DpYg60hcNR6Jcn0N1q98SwG8mXiBekLfKJiBQewr0oZCL4bJ7U5XDUeydf"
-            crossorigin="anonymous"></script>
-    <script src="assets/dependencies/leaflet-markercluster-1.4.1/leaflet.markercluster.js"
-            ></script>
-    <script src="assets/dependencies/leaflet-groupedlayercontrol-0.6.1/leaflet.groupedlayercontrol.min.js"
-            integrity="sha384-XAr1poM2RCR9/QQFki7ylrGSdmvYE0NuHghuRuxb/k9zJQA53y6qR5te5jJRZlcL"
-            crossorigin="anonymous"></script>
-    <script src="assets/js/app.js"
-            crossorigin="anonymous"></script>
-    <script src="assets/js/convert_to_csv.js"
-            integrity="sha384-7x+/q3P6TON7U3qb8ZE4203m82xgInGe5BOkAZn0V9FSDsCL8eO0xQazkyCTINjB"
-            crossorigin="anonymous"></script>
+    <script src="assets/dependencies/jquery-3.5.1/jquery-3.5.1.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script>
+    <script src="assets/dependencies/bootstrap-3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <script src="assets/dependencies/list-1.5.0/list.min.js" integrity="sha384-JDmRxRiXkNkskRM5AD4qHRGk9ItwZ9flbqOpsRYs8SOrIRwcMtTGKP2Scnjptzgm" crossorigin="anonymous"></script>
+    <script src="assets/dependencies/leaflet-1.6.0/leaflet.js" integrity="sha384-ba1n96DpYg60hcNR6Jcn0N1q98SwG8mXiBekLfKJiBQewr0oZCL4bJ7U5XDUeydf" crossorigin="anonymous"></script>
+    <script src="assets/dependencies/leaflet-markercluster-1.4.1/leaflet.markercluster.js"></script>
+    <script src="assets/dependencies/leaflet-groupedlayercontrol-0.6.1/leaflet.groupedlayercontrol.min.js" integrity="sha384-XAr1poM2RCR9/QQFki7ylrGSdmvYE0NuHghuRuxb/k9zJQA53y6qR5te5jJRZlcL" crossorigin="anonymous"></script>
+    <script src="assets/js/app.js" crossorigin="anonymous"></script>
+    <script src="assets/js/convert_to_csv.js" integrity="sha384-7x+/q3P6TON7U3qb8ZE4203m82xgInGe5BOkAZn0V9FSDsCL8eO0xQazkyCTINjB" crossorigin="anonymous"></script>
     <!-- Website data -->
-  
     <!-- Website data -->
-  </body>
+</body>
 
 </html>

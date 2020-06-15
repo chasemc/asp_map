@@ -133,7 +133,7 @@ function syncSidebar() {
 
         if (layer.feature.properties.website !== null) {
 
-             aa = document.createTextNode('Click here for ' +
+            aa = document.createTextNode('Click here for ' +
                 layer.feature.properties.last_name +
                 ' lab homepage');
 
@@ -159,18 +159,18 @@ function syncSidebar() {
 
 
 
-/* Display a modal when a marker is clicked */
+        /* Display a modal when a marker is clicked */
         layer.on({
             click: function(e) {
 
 
-        sidePanel.appendChild(spFirstName);
-        sidePanel.appendChild(spLastName);
-        sidePanel.appendChild(spUniversity);
+                sidePanel.appendChild(spFirstName);
+                sidePanel.appendChild(spLastName);
+                sidePanel.appendChild(spUniversity);
 
-var td1 = document.getElementById('td1');
-var text = document.createTextNode("some text");
-td1.appendChild(text);
+                var td1 = document.getElementById('td1');
+                var text = document.createTextNode("some text");
+                td1.appendChild(text);
 
 
 
@@ -190,7 +190,7 @@ td1.appendChild(text);
                     layer.feature.properties.shortd +
                     '</p>' +
                     '<div>' +
-                   
+
                     '</div>' +
                     '<div>' +
                     '</div>' +
@@ -199,7 +199,7 @@ td1.appendChild(text);
             }
         });
 
-/* Filter sidebar by the current map view */
+        /* Filter sidebar by the current map view */
         if (map.hasLayer(academicLayer)) {
             if (map.getBounds().contains(layer.getLatLng())) {
                 $("#feature-list tbody").append('<tr class="feature-row" id="' +
@@ -427,20 +427,18 @@ $("#featureModal").on("hidden.bs.modal", function(e) {
 });
 
 
-
 /* Run init on DOM load */
 window.addEventListener('DOMContentLoaded', init);
 
 /* Main function that controls map markers, etc. */
 function init() {
     /* Retrieve JSON data */
-  //  let requestURL = 'https://chasemc.github.io/temp2/j.json';
+    //  let requestURL = 'https://chasemc.github.io/temp2/j.json';
     let requestURL = 'data/gsheet.json';
     let request = new XMLHttpRequest();
     request.open('GET', requestURL);
     request.responseType = 'json';
     request.send();
-
     request.onload = function() {
         const gsheet = request.response['data'];
         academicLayer.addTo(map);
@@ -449,7 +447,6 @@ function init() {
         $("#sel").on("change", function() {
             if ($('#sel').val().includes("All")) {
                 addPoints(gsheet)
-
             } else {
                 addPoints($.grep(gsheet, function(n, i) {
                     if (typeof n.secondary_field == "string") {
@@ -461,7 +458,7 @@ function init() {
                 }))
             }
         })
-                            syncSidebar();
+        syncSidebar();
 
     }
 }

@@ -179,7 +179,9 @@ input[type="radio"], input[type="checkbox"] {
 
 
 div.side-pi-and-uni {
-  line-height: 50%;
+  line-height: 100%;
+  margin-bottom: 10px; /* between paragraphs */
+
 }
 
 div.side-dec {
